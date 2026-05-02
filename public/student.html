@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSS MCQs Portal - Student Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/student.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <div class="header">
+            <h1>📚 PSS MCQs Portal</h1>
+            <div class="user-info">
+                <span id="studentName">Student</span>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Category Progress Grid -->
+            <div class="category-grid">
+                <div class="category-card" data-category="physics">
+                    <h3>Physics</h3>
+                    <div class="progress-bar-container">
+                        <div class="progress-fill" id="physicsProgress" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-text" id="physicsText">0/10 correct</span>
+                </div>
+                <div class="category-card" data-category="chemistry">
+                    <h3>Chemistry</h3>
+                    <div class="progress-bar-container">
+                        <div class="progress-fill" id="chemistryProgress" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-text" id="chemistryText">0/10 correct</span>
+                </div>
+                <div class="category-card" data-category="biology">
+                    <h3>Biology</h3>
+                    <div class="progress-bar-container">
+                        <div class="progress-fill" id="biologyProgress" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-text" id="biologyText">0/10 correct</span>
+                </div>
+                <div class="category-card" data-category="mathematics">
+                    <h3>Mathematics</h3>
+                    <div class="progress-bar-container">
+                        <div class="progress-fill" id="mathematicsProgress" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-text" id="mathematicsText">0/10 correct</span>
+                </div>
+            </div>
+            
+            <!-- Question Area -->
+            <div class="question-area">
+                <div class="expiry-banner" id="expiryBanner"></div>
+                
+                <div class="category-nav">
+                    <button class="cat-nav-btn" data-cat="physics">Physics</button>
+                    <button class="cat-nav-btn" data-cat="chemistry">Chemistry</button>
+                    <button class="cat-nav-btn" data-cat="biology">Biology</button>
+                    <button class="cat-nav-btn" data-cat="mathematics">Mathematics</button>
+                </div>
+                
+                <div id="questionContainer">
+                    <div class="question-header">
+                        <span id="categoryName">Physics</span>
+                        <span id="questionCounter">Question 1 of 10</span>
+                    </div>
+                    
+                    <div id="questionText" class="question-text">Loading...</div>
+                    
+                    <div id="optionsContainer" class="options-container"></div>
+                    
+                    <div id="feedback" class="feedback"></div>
+                    
+                    <div class="action-buttons">
+                        <button id="submitBtn" class="submit-btn">Submit Answer</button>
+                        <button id="nextBtn" class="next-btn" style="display: none;">Next Question →</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Leaderboard -->
+            <div class="leaderboard">
+                <h3>🏆 Standings</h3>
+                <div class="leaderboard-tabs">
+                    <button id="currentWeekLeaderBtn" class="leader-tab active">This Week</button>
+                    <button id="overallLeaderBtn" class="leader-tab">Overall</button>
+                </div>
+                <div id="leaderboardList" class="leaderboard-list">
+                    <div class="loading">Loading...</div>
+                </div>
+            </div>
+            
+            <!-- Messages Inbox -->
+            <div class="messages-inbox">
+                <h3>📩 Messages from Teacher</h3>
+                <div id="messagesList" class="messages-list">
+                    <div class="loading">Loading...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/js/common.js"></script>
+    <script src="/js/student.js"></script>
+</body>
+</html>

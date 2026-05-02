@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSS MCQs Portal - Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1>📚 PSS MCQs Portal</h1>
+            <h2>9th Grade Weekly Quiz</h2>
+            
+            <div class="tabs">
+                <button class="tab-btn active" id="studentTabBtn">Student Login</button>
+                <button class="tab-btn" id="adminTabBtn">Admin Login</button>
+            </div>
+            
+            <!-- Student Login Form -->
+            <div id="studentLogin" class="login-form active">
+                <input type="text" id="studentUsername" placeholder="Username" autocomplete="off">
+                <input type="password" id="studentPassword" placeholder="Password">
+                <button id="studentLoginBtn">Login</button>
+                <div id="studentError" class="error-message"></div>
+            </div>
+            
+            <!-- Admin Login Form -->
+            <div id="adminLogin" class="login-form">
+                <input type="password" id="adminPassword" placeholder="Admin Password">
+                <button id="adminLoginBtn">Login</button>
+                <div id="adminError" class="error-message"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/js/common.js"></script>
+    <script>
+        // Tab switching
+        document.getElementById('studentTabBtn').onclick = function() {
+            document.getElementById('studentLogin').classList.add('active');
+            document.getElementById('adminLogin').classList.remove('active');
+            document.getElementById('studentTabBtn').classList.add('active');
+            document.getElementById('adminTabBtn').classList.remove('active');
+        };
+        
+        document.getElementById('adminTabBtn').onclick = function() {
+            document.getElementById('adminLogin').classList.add('active');
+            document.getElementById('studentLogin').classList.remove('active');
+            document.getElementById('adminTabBtn').classList.add('active');
+            document.getElementById('studentTabBtn').classList.remove('active');
+        };
+        
+        // Student login
+        document.getElementById('studentLoginBtn').onclick = function() {
+            const username = document.getElementById('studentUsername').value;
+            const password = document.getElementById('studentPassword').value;
+            studentLogin(username, password);
+        };
+        
+        // Admin login
+        document.getElementById('adminLoginBtn').onclick = function() {
+            const password = document.getElementById('adminPassword').value;
+            adminLogin(password);
+        };
+        
+        // Enter key support
+        document.getElementById('studentPassword').onkeypress = function(e) {
+            if (e.key === 'Enter') document.getElementById('studentLoginBtn').click();
+        };
+        
+        document.getElementById('adminPassword').onkeypress = function(e) {
+            if (e.key === 'Enter') document.getElementById('adminLoginBtn').click();
+        };
+    </script>
+</body>
+</html>

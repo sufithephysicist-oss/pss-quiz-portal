@@ -1,0 +1,270 @@
+/* Admin Panel Specific Styles */
+
+.admin-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.admin-header {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.admin-header h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #1a3a6a;
+}
+
+.admin-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.admin-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 20px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.tab-btn {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    width: auto;
+    color: #333;
+}
+
+.tab-btn.active {
+    background: #1a3a6a;
+    color: white;
+    border-color: #1a3a6a;
+}
+
+.tab-content {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Category sections for upload */
+.category-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.category-section h3 {
+    margin: 0 0 15px 0;
+    color: #1a3a6a;
+}
+
+.question-row {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.question-row strong {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.question-row input[type="text"] {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+.options-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.options-row input {
+    margin-bottom: 0;
+}
+
+.correct-select {
+    width: auto;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.submit-upload {
+    background: #2e8b57;
+    padding: 12px 24px;
+    font-size: 16px;
+    width: auto;
+    margin-top: 20px;
+}
+
+.submit-upload:hover {
+    background: #1e6b43;
+}
+
+/* Form groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.info-box {
+    background: #e8f0fe;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+/* Students list */
+.students-list {
+    margin-top: 15px;
+}
+
+.student-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.student-info {
+    font-weight: bold;
+}
+
+.delete-student {
+    background: #cc0000;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: auto;
+    font-size: 12px;
+}
+
+.delete-student:hover {
+    background: #990000;
+}
+
+/* Wrong answers list */
+.wrong-answers-list {
+    margin-top: 15px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.wrong-item {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.wrong-student {
+    font-weight: bold;
+    color: #1a3a6a;
+}
+
+.wrong-question {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.wrong-details {
+    font-size: 13px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.wrong-answer {
+    color: #cc0000;
+}
+
+.correct-answer {
+    color: #2e8b57;
+}
+
+/* Danger buttons */
+.danger-btn {
+    background: #cc0000;
+}
+
+.danger-btn:hover {
+    background: #990000;
+}
+
+/* Message area */
+.message-area {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.message-area.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message-area.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+    .admin-tabs {
+        flex-direction: column;
+    }
+    
+    .options-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-container {
+        padding: 10px;
+    }
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSS MCQs Portal - Admin Panel</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Header -->
+        <div class="admin-header">
+            <h1>👨‍🏫 Admin Control Panel</h1>
+            <div class="admin-actions">
+                <span id="adminName">Admin</span>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </div>
+        
+        <!-- Tabs -->
+        <div class="admin-tabs">
+            <button class="tab-btn active" data-tab="upload">📤 Upload Quiz</button>
+            <button class="tab-btn" data-tab="due">📅 Set Due Date</button>
+            <button class="tab-btn" data-tab="students">👥 Manage Students</button>
+            <button class="tab-btn" data-tab="wrong">❌ Wrong Answers</button>
+            <button class="tab-btn" data-tab="message">✉️ Send Message</button>
+            <button class="tab-btn" data-tab="announce">🏆 Announce Results</button>
+            <button class="tab-btn" data-tab="reset">🔄 Reset Progress</button>
+        </div>
+        
+        <!-- Tab 1: Upload Quiz -->
+        <div id="tab-upload" class="tab-content active">
+            <h2>Upload Weekly Quiz (40 Questions)</h2>
+            <form id="uploadForm">
+                <!-- Physics -->
+                <div class="category-section">
+                    <h3>🔬 PHYSICS (10 Questions)</h3>
+                    <div id="physics-questions"></div>
+                </div>
+                
+                <!-- Chemistry -->
+                <div class="category-section">
+                    <h3>🧪 CHEMISTRY (10 Questions)</h3>
+                    <div id="chemistry-questions"></div>
+                </div>
+                
+                <!-- Biology -->
+                <div class="category-section">
+                    <h3>🧬 BIOLOGY (10 Questions)</h3>
+                    <div id="biology-questions"></div>
+                </div>
+                
+                <!-- Mathematics -->
+                <div class="category-section">
+                    <h3>📐 MATHEMATICS (10 Questions)</h3>
+                    <div id="mathematics-questions"></div>
+                </div>
+                
+                <button type="submit" class="submit-upload">Upload All Questions</button>
+            </form>
+            <div id="uploadMessage" class="message-area"></div>
+        </div>
+        
+        <!-- Tab 2: Set Due Date -->
+        <div id="tab-due" class="tab-content">
+            <h2>Set Quiz Due Date</h2>
+            <div class="form-group">
+                <label>Due Date and Time:</label>
+                <input type="datetime-local" id="dueDateInput">
+                <button id="setDueDateBtn">Set Due Date</button>
+            </div>
+            <div id="currentDueDate" class="info-box"></div>
+            <div id="dueMessage" class="message-area"></div>
+        </div>
+        
+        <!-- Tab 3: Manage Students -->
+        <div id="tab-students" class="tab-content">
+            <h2>Manage Students</h2>
+            <div class="add-student">
+                <h3>Add New Student</h3>
+                <input type="text" id="newUsername" placeholder="Username">
+                <input type="text" id="newPassword" placeholder="Password">
+                <button id="addStudentBtn">Add Student</button>
+            </div>
+            
+            <h3>Existing Students</h3>
+            <div id="studentsList" class="students-list"></div>
+            <div id="studentMessage" class="message-area"></div>
+        </div>
+        
+        <!-- Tab 4: Wrong Answers -->
+        <div id="tab-wrong" class="tab-content">
+            <h2>Student Wrong Answers (Current Week)</h2>
+            <button id="refreshWrongBtn">Refresh</button>
+            <div id="wrongAnswersList" class="wrong-answers-list"></div>
+        </div>
+        
+        <!-- Tab 5: Send Message -->
+        <div id="tab-message" class="tab-content">
+            <h2>Send Message to Student</h2>
+            <div class="form-group">
+                <label>Select Student:</label>
+                <select id="messageStudentId"></select>
+            </div>
+            <div class="form-group">
+                <label>Subject:</label>
+                <input type="text" id="messageSubject" placeholder="e.g., Explanation for Physics Q3">
+            </div>
+            <div class="form-group">
+                <label>Message Content:</label>
+                <textarea id="messageContent" rows="5" placeholder="Write explanation here..."></textarea>
+            </div>
+            <button id="sendMessageBtn">Send Message</button>
+            <div id="messageResult" class="message-area"></div>
+        </div>
+        
+        <!-- Tab 6: Announce Results -->
+        <div id="tab-announce" class="tab-content">
+            <h2>Announce Weekly Results</h2>
+            <p>This will:</p>
+            <ul>
+                <li>Calculate 1st, 2nd, 3rd place based on overall progress</li>
+                <li>Show winners to all students via toast notification</li>
+                <li>Clear all weekly answers for next quiz</li>
+                <li>Increment week ID for new questions</li>
+            </ul>
+            <button id="announceBtn" class="danger-btn">🏆 ANNOUNCE RESULTS & RESET WEEK</button>
+            <div id="announceResult" class="message-area"></div>
+        </div>
+        
+        <!-- Tab 7: Reset Progress -->
+        <div id="tab-reset" class="tab-content">
+            <h2>⚠️ Reset Overall Progress</h2>
+            <p>This will permanently delete:</p>
+            <ul>
+                <li>All student answers (overall history)</li>
+                <li>All messages</li>
+            </ul>
+            <p>Student accounts will remain. This action cannot be undone.</p>
+            <button id="resetOverallBtn" class="danger-btn">⚠️ RESET ALL PROGRESS</button>
+            <div id="resetResult" class="message-area"></div>
+        </div>
+    </div>
+    
+    <script src="/js/common.js"></script>
+    <script src="/js/admin.js"></script>
+</body>
+</html>
